@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Route, Routes } from "react-router-dom";
+import AlbumContainer from "./Album.js";
+import Form from "./Form.js";
 
 function Site() {
   const backend = "http://localhost:9292/";
   const [albumTitles, setAlbumTitles] = useState(null);
+  const [selectedAlbum, setSelectedAlbum] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,7 +19,8 @@ function Site() {
 
   function handleSelect(e) {
     e.preventDefault();
-    navigate(`albums/${e.target.title.value}`);
+    navigate(`/albums/:${e.target.title.value}`);
+    setSelectedAlbum(e.target.title.value);
   }
 
   let selections = albumTitles
@@ -28,10 +32,21 @@ function Site() {
     : null;
 
   return (
-    <form onSubmit={(e) => handleSelect(e)}>
-      <select name="title">{selections}</select>
-      <button type="Submit">Select</button>
-    </form>
+    <>
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={<Form handleSelect={handleSelect} selections={selections} />}
+        />
+        <Route
+          path="/albums/*"
+          element={
+            <AlbumContainer backend={backend} selectedAlbum={selectedAlbum} />
+          }
+        />
+      </Routes>
+    </>
   );
 }
 export default Site;
