@@ -41,6 +41,9 @@
   border: 2px solid black;
 }
 
+.cover {
+  height: 300px;
+}
 .cover-image {
   border: 2px solid white;
   max-height: 300px;
