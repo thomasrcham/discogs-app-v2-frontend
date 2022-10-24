@@ -33,19 +33,24 @@ function Site() {
 
   return (
     <>
-      <Routes>
-        <Route
-          exact
-          path="/"
-          element={<Form handleSelect={handleSelect} selections={selections} />}
-        />
-        <Route
-          path="/albums/*"
-          element={
-            <AlbumContainer backend={backend} selectedAlbum={selectedAlbum} />
-          }
-        />
-      </Routes>
+      <div class="header">TITLE</div>
+      <div class="main-window">
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <Form handleSelect={handleSelect} selections={selections} />
+            }
+          />
+          <Route
+            path="/albums/*"
+            element={
+              <AlbumContainer backend={backend} selectedAlbum={selectedAlbum} />
+            }
+          />
+        </Routes>
+      </div>
     </>
   );
 }

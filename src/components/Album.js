@@ -6,10 +6,21 @@ function AlbumContainer({ selectedAlbum, backend }) {
   useEffect(() => {
     fetch(`${backend}albums/${selectedAlbum}`)
       .then((r) => r.json())
-      .then((d) => console.log(d));
+      .then((d) => {
+        setDisplayAlbum(d);
+        console.log(d.artist.name);
+      });
   }, []);
 
-  return null;
+  return displayAlbum ? (
+    <div class="album-window">
+      <img src={displayAlbum.cover_image} alt={displayAlbum.name} />
+      <br />
+      {displayAlbum.artist.name}
+      <br />
+      {displayAlbum.name}
+    </div>
+  ) : null;
 }
 
 export default AlbumContainer;
