@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { useNavigate, Route, Routes, NavLink } from "react-router-dom";
+import { useNavigate, Route, Routes } from "react-router-dom";
 import AlbumContainer from "./Album.js";
 import Form from "./Form.js";
 import MostListens from "./MostListens.js";
+import Listens from "./Listens.js";
 
 function Site() {
   const backend = "http://localhost:9292/";
@@ -28,8 +29,8 @@ function Site() {
   function handleRandom(e) {
     e.preventDefault();
     let rand = Math.floor(1 + Math.random() * (albumTitles.length - 1));
-    navigate(`/albums/:${rand}`);
     setSelectedAlbum(rand);
+    navigate(`/albums/:${rand}`);
   }
 
   let selections = albumTitles
@@ -83,7 +84,13 @@ function Site() {
       <div className="main-window">
         <button onClick={() => navigate("/most_listens/")}>most</button>
         <Routes>
-          <Route path="/most_listens/" element={<MostListens />}></Route>
+          <Route
+            path="/listens/:id"
+            element={
+              <Listens selectedAlbum={selectedAlbum} backend={backend} />
+            }
+          />
+          <Route path="/most_listens/" element={<MostListens />} />
           <Route
             exact
             path="/"
@@ -98,7 +105,11 @@ function Site() {
           <Route
             path="/albums/*"
             element={
-              <AlbumContainer backend={backend} selectedAlbum={selectedAlbum} />
+              <AlbumContainer
+                backend={backend}
+                selectedAlbum={selectedAlbum}
+                setSelectedAlbum={setSelectedAlbum}
+              />
             }
           />
         </Routes>

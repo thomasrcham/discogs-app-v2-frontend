@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
+import { format } from "date-fns";
 
-function AlbumContainer({ selectedAlbum, backend }) {
+function AlbumContainer({ selectedAlbum, backend, setSelectedAlbum }) {
   const navigate = useNavigate();
   const [displayAlbum, setDisplayAlbum] = useState(null);
 
@@ -15,6 +16,10 @@ function AlbumContainer({ selectedAlbum, backend }) {
           })
       : navigate("/");
   }, []);
+
+  let displayListen = displayAlbum
+    ? format(new Date(displayAlbum.latest_listen), "MM/dd/yyyy")
+    : "placeholder";
 
   return displayAlbum ? (
     <div className="album-window">
@@ -31,11 +36,20 @@ function AlbumContainer({ selectedAlbum, backend }) {
           <br />
           {displayAlbum.name}
         </p>
-        <p style={{ fontSize: "large" }}>
-          Released in {displayAlbum.year} <br />
-          Last Listened to on PLACEHOLDER
+        <span style={{ fontSize: "medium" }}>
+          Released in {displayAlbum.year}
+        </span>
+        <p style={{ fontSize: "medium" }}>
+          You last listened to this record on {displayListen}.
         </p>
-        <p style={{ fontSize: "small" }}>SEE ALL LISTENS</p>
+        <p
+          onClick={() => {
+            navigate(`/listens/${selectedAlbum}`);
+          }}
+          style={{ fontSize: "small" }}
+        >
+          SEE ALL LISTENS
+        </p>
       </div>
     </div>
   ) : null;
