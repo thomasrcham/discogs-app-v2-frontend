@@ -10,6 +10,7 @@ function AlbumContainer({ selectedAlbum, backend }) {
       ? fetch(`${backend}albums/${selectedAlbum}`)
           .then((r) => r.json())
           .then((d) => {
+            console.log(d);
             setDisplayAlbum(d);
           })
       : navigate("/");
@@ -25,9 +26,16 @@ function AlbumContainer({ selectedAlbum, backend }) {
         />
       </div>
       <div className="artist-info">
-        <h4>{displayAlbum.artist.name}</h4>
-        <p>{displayAlbum.name}</p>
-        <p>Released in: {displayAlbum.year}</p>
+        <p style={{ fontSize: "largest" }}>
+          {displayAlbum.artist.name}
+          <br />
+          {displayAlbum.name}
+        </p>
+        <p style={{ fontSize: "large" }}>
+          Released in {displayAlbum.year} <br />
+          Last Listened to on PLACEHOLDER
+        </p>
+        <p style={{ fontSize: "small" }}>SEE ALL LISTENS</p>
       </div>
     </div>
   ) : null;

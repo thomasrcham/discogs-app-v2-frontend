@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, Route, Routes, NavLink } from "react-router-dom";
 import AlbumContainer from "./Album.js";
 import Form from "./Form.js";
+import MostListens from "./MostListens.js";
 
 function Site() {
   const backend = "http://localhost:9292/";
@@ -51,7 +52,13 @@ function Site() {
     </button>
   ) : (
     <>
-      <button value="home" onClick={() => setDisplay(0)}>
+      <button
+        value="home"
+        onClick={() => {
+          navigate("/");
+          setDisplay(0);
+        }}
+      >
         Home
       </button>
       <button value="search" onClick={() => setDisplay(2)}>
@@ -74,7 +81,9 @@ function Site() {
         </div>
       </div>
       <div className="main-window">
+        <button onClick={() => navigate("/most_listens/")}>most</button>
         <Routes>
+          <Route path="/most_listens/" element={<MostListens />}></Route>
           <Route
             exact
             path="/"

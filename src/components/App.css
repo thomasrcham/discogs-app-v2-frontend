@@ -9,6 +9,10 @@
   background-color: #d9d5cc;
 }
 
+body {
+  background-color: #d9d5cc;
+}
+
 .buttons-container {
   position: relative;
   top: 80px;
@@ -26,6 +30,7 @@
 
 .main-window {
   position: relative;
+  /* height: calc(100% - 175px); */
   top: 175px;
   left: 0;
   right: 0;
@@ -35,18 +40,14 @@
 }
 
 .album-window {
-  font-size: medium;
-  justify-content: space-around;
+  justify-content: center;
   display: flex;
   border: 2px solid black;
 }
 
-.cover {
-  height: 300px;
-}
 .cover-image {
   border: 2px solid white;
-  max-height: 300px;
+  max-width: 75%;
 }
 
 .artist-info {
@@ -55,5 +56,39 @@
   justify-content: center;
   border: 2px solid white;
   text-align: left;
-  align-items: left;
+  font-family: Alegreya;
+}
+
+.artist-name {
+  size: 16px;
+}
+
+.most-listens-window {
+  border: 2px solid black;
+  align-content: space-between;
+  border-width: 1px;
+  /* display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 10px; */
+  min-width: 50%;
+  /* min-height: 100%; */
+  /* max-width: 800px; */
+  place-items: center;
+}
+
+.most-listens-row {
+  border: 2px solid black;
+  display: flexbox;
+}
+
+.most-listens-info {
+  border: 2px solid black;
+  /* max-height: 200px; */
+}
+
+.most-listens-cover {
+  border: 2px solid black;
+  /* max-height: 200px; */
 }
