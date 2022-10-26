@@ -2,12 +2,12 @@ import { format } from "date-fns";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-function Listens({ selectedAlbum, backend }) {
+function Listens({ selectedAlbum }) {
   const [allListensArray, setAllListensArray] = useState(null);
   let { id } = useParams();
 
   useEffect(() => {
-    fetch(`${backend}listens/${id}`)
+    fetch(`http://localhost:9292/listens/${id}`)
       .then((r) => r.json())
       .then((d) => {
         setAllListensArray(d);

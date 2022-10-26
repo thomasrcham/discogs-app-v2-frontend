@@ -1,0 +1,33 @@
+import { useNavigate } from "react-router-dom";
+
+function Buttons({ handleRandom, returnHome, selectedAlbum, setDisplay }) {
+  const navigate = useNavigate();
+  return selectedAlbum ? (
+    <button value="return" onClick={() => returnHome()}>
+      Back to Home
+    </button>
+  ) : (
+    <>
+      <button
+        value="home"
+        onClick={() => {
+          navigate("/");
+          setDisplay(0);
+        }}
+      >
+        Home
+      </button>
+      <button value="search" onClick={() => setDisplay(2)}>
+        Search
+      </button>
+      <button value="filter" onClick={() => setDisplay(1)}>
+        Filter
+      </button>
+      <button value="random" onClick={(e) => handleRandom(e)}>
+        Random
+      </button>
+    </>
+  );
+}
+
+export default Buttons;
