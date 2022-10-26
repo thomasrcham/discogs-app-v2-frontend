@@ -28,7 +28,7 @@ function Site() {
     e.preventDefault();
     let rand = Math.floor(1 + Math.random() * (albumTitles.length - 1));
     setSelectedAlbum(rand);
-    navigate(`/albums/:${rand}`);
+    navigate(`/albums/${rand}`);
   }
 
   function returnHome() {
