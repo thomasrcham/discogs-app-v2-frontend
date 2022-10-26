@@ -17,9 +17,23 @@ function AlbumContainer({ selectedAlbum, backend, setSelectedAlbum }) {
       : navigate("/");
   }, []);
 
-  let displayListen = displayAlbum
-    ? format(new Date(displayAlbum.latest_listen), "MM/dd/yyyy")
-    : "placeholder";
+  let displayListen =
+    displayAlbum && displayAlbum.latest_listen ? (
+      <>
+        <p style={{ fontSize: "medium" }}>
+          You last listened to this record on{" "}
+          {format(new Date(displayAlbum.latest_listen), "MM/dd/yyyy")}.
+        </p>
+        <p
+          onClick={() => {
+            navigate(`/listens/${selectedAlbum}`);
+          }}
+          style={{ fontSize: "small" }}
+        >
+          SEE ALL LISTENS
+        </p>
+      </>
+    ) : null;
 
   return displayAlbum ? (
     <div className="album-window">
@@ -32,24 +46,16 @@ function AlbumContainer({ selectedAlbum, backend, setSelectedAlbum }) {
       </div>
       <div className="artist-info">
         <p style={{ fontSize: "largest" }}>
-          {displayAlbum.artist.name}
+          {displayAlbum.artist.name === "Various"
+            ? "Various Artists"
+            : displayAlbum.artist.name}
           <br />
           {displayAlbum.name}
         </p>
         <span style={{ fontSize: "medium" }}>
           Released in {displayAlbum.year}
         </span>
-        <p style={{ fontSize: "medium" }}>
-          You last listened to this record on {displayListen}.
-        </p>
-        <p
-          onClick={() => {
-            navigate(`/listens/${selectedAlbum}`);
-          }}
-          style={{ fontSize: "small" }}
-        >
-          SEE ALL LISTENS
-        </p>
+        {displayListen}
       </div>
     </div>
   ) : null;
