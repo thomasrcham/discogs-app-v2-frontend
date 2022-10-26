@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, Route, Routes } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import MainWindow from "./MainWindow.js";
 import Buttons from "./Buttons.js";

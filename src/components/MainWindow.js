@@ -2,7 +2,7 @@ import { useNavigate, Route, Routes } from "react-router-dom";
 import AlbumContainer from "./AlbumContainer.js";
 import MostListens from "./MostListens.js";
 import Listens from "./Listens.js";
-import Form from "./Form.js";
+import Display from "./Display.js";
 import Search from "./Search.js";
 
 function MainWindow({
@@ -10,7 +10,6 @@ function MainWindow({
   selectedAlbum,
   selections,
   setSelectedAlbum,
-  display,
 }) {
   const navigate = useNavigate();
 
@@ -22,21 +21,15 @@ function MainWindow({
           exact
           path="/"
           element={
-            <Form
-              handleSelect={handleSelect}
-              selections={selections}
-              display={display}
-            />
+            <Display handleSelect={handleSelect} selections={selections} />
           }
         />
         <Route path="/search/" element={<Search />} />
-
         <Route
           path="/listens/:id"
           element={<Listens selectedAlbum={selectedAlbum} />}
         />
         <Route path="/most_listens/" element={<MostListens />} />
-
         <Route
           path="/albums/:id"
           element={
