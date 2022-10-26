@@ -20,7 +20,7 @@ function Site() {
 
   function handleSelect(e) {
     e.preventDefault();
-    navigate(`/albums/:${e.target.title.value}`);
+    navigate(`/albums/${e.target.title.value}`);
     setSelectedAlbum(e.target.title.value);
   }
 

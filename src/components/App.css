@@ -20,12 +20,12 @@ body {
   align-items: baseline;
   justify-content: center;
   border: 2px solid black;
+  align-content: space-between;
 }
 
 .buttons {
-  width: 40%;
+  width: 70%;
   border: 2px solid white;
-  align-content: space-between;
 }
 
 .main-window {

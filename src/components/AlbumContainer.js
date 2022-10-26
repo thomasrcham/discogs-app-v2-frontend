@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { format } from "date-fns";
 
 function AlbumContainer({ selectedAlbum, setSelectedAlbum }) {
   const navigate = useNavigate();
   const [displayAlbum, setDisplayAlbum] = useState(null);
-  console.log(selectedAlbum);
+  let { id } = useParams();
+
   useEffect(() => {
-    fetch(`http://localhost:9292/albums/${selectedAlbum}`)
-      .then(console.log(`http://localhost:9292/albums/${selectedAlbum}`))
+    fetch(`http://localhost:9292/albums/${id}`)
+      // .then(console.log(`http://localhost:9292/albums/${selectedAlbum}`))
       .then((r) => r.json())
       .then((d) => {
         console.log(d);

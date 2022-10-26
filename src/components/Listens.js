@@ -29,7 +29,8 @@ function Listens({ selectedAlbum }) {
 
   return (
     <h2>
-      Here are the times you've listened to{" "}
+      Here are the {allListensArray ? allListensArray.length : null} times
+      you've listened to{" "}
       {allListensArray ? allListensArray[0].album.name : null}:
       <table>
         <tbody>{display}</tbody>

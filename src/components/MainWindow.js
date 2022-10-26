@@ -3,6 +3,7 @@ import AlbumContainer from "./AlbumContainer.js";
 import MostListens from "./MostListens.js";
 import Listens from "./Listens.js";
 import Form from "./Form.js";
+import Search from "./Search.js";
 
 function MainWindow({
   handleSelect,
@@ -16,7 +17,6 @@ function MainWindow({
   return (
     <>
       {" "}
-      <button onClick={() => navigate("/most_listens/")}>most</button>
       <Routes>
         <Route
           exact
@@ -29,6 +29,7 @@ function MainWindow({
             />
           }
         />
+        <Route path="/search/" element={<Search />} />
 
         <Route
           path="/listens/:id"
@@ -37,7 +38,7 @@ function MainWindow({
         <Route path="/most_listens/" element={<MostListens />} />
 
         <Route
-          path="/albums/*"
+          path="/albums/:id"
           element={
             <AlbumContainer
               selectedAlbum={selectedAlbum}
