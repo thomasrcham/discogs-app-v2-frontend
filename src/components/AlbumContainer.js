@@ -67,25 +67,24 @@ function AlbumContainer({ selectedAlbum }) {
   return displayAlbum ? (
     <>
       <div
-        class="card mb-3 left"
+        class="card-body mb-3 album-window"
         // style={{max-width: "540px"}}
       >
-        <div className="row g-0 artist-row">
-          <div className="col-md-4">
+        <div className="row g-0 artist-row album-window">
+          <div className="col-md-6">
             <img
               src={displayAlbum.cover_image}
               alt={displayAlbum.name}
               class="img-fluid rounded-start"
             />
           </div>
-          <div className="col-md-5 artist-info">
-            <p style={{ fontSize: "largest" }}>
+          <div className="col-md-4 artist-info card-title">
+            <h4 style={{ fontSize: "largest" }}>
               {displayAlbum.artist.name === "Various"
                 ? "Various Artists"
-                : displayAlbum.artist.name}
-              <br />
-              {displayAlbum.name}
-            </p>
+                : displayAlbum.artist.name}{" "}
+              - {displayAlbum.name}
+            </h4>
             <span style={{ fontSize: "medium" }}>
               Released in {displayAlbum.year}
             </span>

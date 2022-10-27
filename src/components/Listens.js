@@ -49,23 +49,26 @@ function Listens() {
     : null;
 
   return (
-    <div>
-      <h4>
-        {allListensArray && allListensArray.length > 0
-          ? "Here are the " +
-            allListensArray.length +
-            " times you've listened to " +
-            allListensArray[0].album.name +
-            ":"
-          : "You've never listened to this? That's crazy!"}
-      </h4>
-      <ul
-        class="list-group left"
-        style={{ width: "40%", left: "20%", backgroundColor: "#d9d5cc" }}
-      >
-        {thing}
-      </ul>
-    </div>
+    <>
+      <div>
+        <h4>
+          {allListensArray && allListensArray.length > 0
+            ? "Here are the " +
+              allListensArray.length +
+              " times you've listened to " +
+              allListensArray[0].album.name +
+              ":"
+            : "You've never listened to this? That's crazy!"}
+        </h4>
+        <ul
+          class="list-group left"
+          style={{ width: "60%", left: "20%", backgroundColor: "#d9d5cc" }}
+        >
+          {thing}
+        </ul>
+      </div>
+      <div style={{ height: "10vh" }}>a</div>
+    </>
   );
 }
 

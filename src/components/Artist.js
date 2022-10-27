@@ -25,31 +25,28 @@ function Artist() {
       );
   }, []);
 
-  // let artistDisplay =
-  // artistArray
-  // ? artistArray.albums.map((a) => (
-  //     <div class="card card border-secondary" style={{ width: "18rem" }}>
-  //       <img src={a.cover_image} class="card-img-top" alt={a.name} />
-  //       <div class="card-body">
-  //         <h5 class="card-title">{a.name}</h5>
+  let artistDisplay = albumArray
+    ? albumArray.map((a) => (
+        <div class="card card border-secondary" style={{ width: "18rem" }}>
+          <img src={a.cover_image} class="card-img-top" alt={a.name} />
+          <div class="card-body">
+            <h5 class="card-title">{a.name}</h5>
 
-  //         <div class="card-text">
-  //           <span class="listens-text">Released in: {a.year}</span>
-  //           <br />
-  //           <span
-  //             class="listens-text"
-  //             onClick={() => navigate(`/albums/${a.id}`)}
-  //           >
-  //             Go to Album Page
-  //           </span>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   ))
-  // :
-  // null;
+            <div class="card-text">
+              <span class="listens-text">Released in: {a.year}</span>
+              <br />
+              <span
+                class="listens-text"
+                onClick={() => navigate(`/albums/${a.id}`)}
+              >
+                Go to Album Page
+              </span>
+            </div>
+          </div>
+        </div>
+      ))
+    : null;
 
-  return "artist";
-  // <div className="most-listens-window">{artistDisplay}</div>;
+  return <div className="most-listens-window">{artistDisplay}</div>;
 }
 export default Artist;
