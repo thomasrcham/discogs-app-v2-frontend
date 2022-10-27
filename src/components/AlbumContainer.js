@@ -65,28 +65,57 @@ function AlbumContainer({ selectedAlbum }) {
     ) : null;
 
   return displayAlbum ? (
-    <div className="album-window">
-      <div className="cover">
-        <img
-          src={displayAlbum.cover_image}
-          alt={displayAlbum.name}
-          className="cover-image"
-        />
+    <>
+      <div
+        class="card mb-3 left"
+        // style={{max-width: "540px"}}
+      >
+        <div className="row g-0 artist-row">
+          <div className="col-md-4">
+            <img
+              src={displayAlbum.cover_image}
+              alt={displayAlbum.name}
+              class="img-fluid rounded-start"
+            />
+          </div>
+          <div className="col-md-5 artist-info">
+            <p style={{ fontSize: "largest" }}>
+              {displayAlbum.artist.name === "Various"
+                ? "Various Artists"
+                : displayAlbum.artist.name}
+              <br />
+              {displayAlbum.name}
+            </p>
+            <span style={{ fontSize: "medium" }}>
+              Released in {displayAlbum.year}
+            </span>
+            {displayListen}
+          </div>
+        </div>
       </div>
-      <div className="artist-info">
-        <p style={{ fontSize: "largest" }}>
-          {displayAlbum.artist.name === "Various"
-            ? "Various Artists"
-            : displayAlbum.artist.name}
-          <br />
-          {displayAlbum.name}
-        </p>
-        <span style={{ fontSize: "medium" }}>
-          Released in {displayAlbum.year}
-        </span>
-        {displayListen}
-      </div>
-    </div>
+      {/* <div className="album-window">
+        <div className="cover">
+          <img
+            src={displayAlbum.cover_image}
+            alt={displayAlbum.name}
+            className="cover-image"
+          />
+        </div>
+        <div className="artist-info">
+          <p style={{ fontSize: "largest" }}>
+            {displayAlbum.artist.name === "Various"
+              ? "Various Artists"
+              : displayAlbum.artist.name}
+            <br />
+            {displayAlbum.name}
+          </p>
+          <span style={{ fontSize: "medium" }}>
+            Released in {displayAlbum.year}
+          </span>
+          {displayListen}
+        </div>
+      </div> */}
+    </>
   ) : null;
 }
 

@@ -16,9 +16,9 @@ function SearchResults({ searchResults }) {
             {r.name} -{" "}
             <span
               className="listens-text"
-              //   onClick={() => {
-              //     navigate(`/artists/${r.id}`);
-              //   }}
+              onClick={() => {
+                navigate(`/artists/${r.id}`);
+              }}
               style={{ fontSize: "small" }}
             >
               Owned Albums
@@ -31,7 +31,8 @@ function SearchResults({ searchResults }) {
             style={{ backgroundColor: "#d9d5cc" }}
             key={r.id}
           >
-            {r.artist.name} - {r.name} -{" "}
+            {r.artist.name === "Various" ? "Various Artists" : r.artist.name} -{" "}
+            {r.name} -{" "}
             <span
               className="listens-text"
               onClick={() => {

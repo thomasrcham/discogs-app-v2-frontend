@@ -26,13 +26,13 @@ function Buttons({ handleRandom, returnHome, selectedAlbum, setDisplay }) {
       >
         Search
       </button>
-      <button
+      {/* <button
         value="filter"
         onClick={() => setDisplay(1)}
         class="btn .btn-outline-success"
       >
         Filter
-      </button>
+      </button> */}
       <button
         value="random"
         onClick={(e) => handleRandom(e)}

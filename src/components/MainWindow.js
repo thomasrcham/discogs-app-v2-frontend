@@ -1,10 +1,11 @@
-import { useNavigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import AlbumContainer from "./AlbumContainer.js";
 import MostListens from "./MostListens.js";
 import Listens from "./Listens.js";
 import Display from "./Display.js";
 import Search from "./Search.js";
+import Artist from "./Artist.js";
 
 function MainWindow({
   handleSelect,
@@ -12,7 +13,6 @@ function MainWindow({
   selections,
   setSelectedAlbum,
 }) {
-  const navigate = useNavigate();
   const [key, setKey] = useState(0);
 
   return (
@@ -35,6 +35,7 @@ function MainWindow({
           element={<Listens selectedAlbum={selectedAlbum} />}
         />
         <Route path="/most_listens/" element={<MostListens />} />
+        <Route path="/artists/:id" element={<Artist />} />
         <Route
           path="/albums/:id"
           element={
