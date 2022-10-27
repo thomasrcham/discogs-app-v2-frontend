@@ -54,7 +54,7 @@ function AlbumContainer({ selectedAlbum }) {
           <p
             className="listens-text"
             onClick={() => {
-              navigate(`/listens/${selectedAlbum}`);
+              navigate(`/listens/${id}`);
             }}
             style={{ fontSize: "small" }}
           >

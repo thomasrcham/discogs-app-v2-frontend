@@ -28,37 +28,44 @@ function Listens() {
 
   let thing = allListensArray
     ? allListensArray.map((listen) => (
-        <tr>
-          <td>
-            {format(new Date(listen.updated_at), "MMMM dd, yyyy @ h:mm aaa")}
-          </td>
-          <td>
-            <button value="delete" onClick={(e) => handleDelete(listen.id)}>
-              Delete this Listen!
-            </button>
-          </td>
-        </tr>
+        <li
+          class="list-group-item left"
+          style={{ backgroundColor: "#d9d5cc" }}
+          key={listen.id}
+        >
+          <span style={{ fontSize: "large" }}>
+            {format(new Date(listen.updated_at), "MMMM dd, yyyy @ h:mmaaa")}
+          </span>
+          <span> --- </span>
+          <span
+            className="listens-text"
+            onClick={(e) => handleDelete(listen.id)}
+            style={{ fontSize: "#d9d5cc" }}
+          >
+            Delete this Listen!
+          </span>
+        </li>
       ))
     : null;
 
   return (
-    <h2>
-      {allListensArray && allListensArray.length > 0
-        ? "Here are the " +
-          allListensArray.length +
-          " times you've listened to " +
-          allListensArray[0].album.name +
-          ":"
-        : "You've never listened to this? That's crazy!"}
-
-      <table>
-        <tbody>
-          <tr>
-            <td>{thing}</td>
-          </tr>
-        </tbody>
-      </table>
-    </h2>
+    <div>
+      <h4>
+        {allListensArray && allListensArray.length > 0
+          ? "Here are the " +
+            allListensArray.length +
+            " times you've listened to " +
+            allListensArray[0].album.name +
+            ":"
+          : "You've never listened to this? That's crazy!"}
+      </h4>
+      <ul
+        class="list-group left"
+        style={{ width: "40%", left: "20%", backgroundColor: "#d9d5cc" }}
+      >
+        {thing}
+      </ul>
+    </div>
   );
 }
 

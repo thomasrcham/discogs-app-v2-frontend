@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SearchResults from "./SearchResults";
 
-function Search() {
+function Search({ setKey, key }) {
   const [search, setSearch] = useState(null);
   const [searchResults, setSearchResults] = useState(null);
 
@@ -63,7 +63,11 @@ function Search() {
             </button>
           </div>
           <div class="col-sm-1">
-            <button type="reset" class="btn btn-success">
+            <button
+              type="reset"
+              class="btn btn-success"
+              onClick={(e) => setKey(key + 1)}
+            >
               Reset!
             </button>
           </div>
