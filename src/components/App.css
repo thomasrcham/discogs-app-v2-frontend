@@ -66,6 +66,11 @@ body {
   size: 16px;
 }
 
+.listens-text:hover {
+  text-decoration: underline;
+  color: rgb(31, 30, 30);
+}
+
 .most-listens-window {
   border: 2px solid black;
   align-content: space-between;

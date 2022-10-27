@@ -2,20 +2,39 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { format } from "date-fns";
 
-function AlbumContainer({ selectedAlbum, setSelectedAlbum }) {
+function AlbumContainer({ selectedAlbum }) {
   const navigate = useNavigate();
   const [displayAlbum, setDisplayAlbum] = useState(null);
   let { id } = useParams();
 
   useEffect(() => {
     fetch(`http://localhost:9292/albums/${id}`)
-      // .then(console.log(`http://localhost:9292/albums/${selectedAlbum}`))
+      .then((r) => r.json())
+      .then((d) => setDisplayAlbum(d));
+  }, [selectedAlbum]);
+
+  function handleNewListen() {
+    // let date = new Date().toJSON().slice(0, 10);
+    // let time = new Date().toTimeString().slice(0, 8);
+    let dateTime = new Date().toJSON();
+    // date + " " + time;
+    fetch(`http://localhost:9292/listens/create`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        album_id: id,
+        dateTime: dateTime,
+      }),
+    })
       .then((r) => r.json())
       .then((d) => {
-        console.log(d);
-        setDisplayAlbum(d);
+        let newDisplay = { ...displayAlbum };
+        newDisplay.latest_listen = dateTime;
+        setDisplayAlbum(newDisplay);
       });
-  }, [selectedAlbum]);
+  }
 
   let displayListen =
     displayAlbum && displayAlbum.latest_listen ? (
@@ -24,14 +43,24 @@ function AlbumContainer({ selectedAlbum, setSelectedAlbum }) {
           You last listened to this record on{" "}
           {format(new Date(displayAlbum.latest_listen), "MM/dd/yyyy")}.
         </p>
-        <p
-          onClick={() => {
-            navigate(`/listens/${selectedAlbum}`);
-          }}
-          style={{ fontSize: "small" }}
-        >
-          SEE ALL LISTENS
-        </p>
+        <div>
+          <p
+            className="listens-text"
+            onClick={(e) => handleNewListen()}
+            style={{ fontSize: "small" }}
+          >
+            ADD A NEW LISTEN!
+          </p>
+          <p
+            className="listens-text"
+            onClick={() => {
+              navigate(`/listens/${selectedAlbum}`);
+            }}
+            style={{ fontSize: "small" }}
+          >
+            SEE ALL PREVIOUS LISTENS!
+          </p>
+        </div>
       </>
     ) : null;
 
