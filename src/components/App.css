@@ -11,6 +11,7 @@
 
 body {
   background-color: #d9d5cc;
+  height: 100vh;
 }
 
 .buttons-container {
@@ -28,14 +29,34 @@ body {
   border: 2px solid white;
 }
 
+.search-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+form#search-form {
+  width: 95%;
+}
+
+ul.left {
+  position: relative;
+  top: 10vh;
+  text-align: left;
+  background-color: #d9d5cc;
+}
+
+.list-group-mine {
+  background-color: #000000;
+}
+
 .main-window {
   position: relative;
-  /* height: calc(100% - 175px); */
-  top: 175px;
+  height: 80vh;
+  top: 20vh;
   left: 0;
   right: 0;
   text-align: center;
-  font-size: 30px;
   background-color: #d9d5cc;
 }
 

@@ -24,7 +24,7 @@ function MainWindow({
             <Display handleSelect={handleSelect} selections={selections} />
           }
         />
-        <Route path="/search/" element={<Search />} />
+        <Route path="/search/*" element={<Search />} />
         <Route
           path="/listens/:id"
           element={<Listens selectedAlbum={selectedAlbum} />}

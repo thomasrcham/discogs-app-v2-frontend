@@ -15,19 +15,37 @@ function Buttons({ handleRandom, returnHome, selectedAlbum, setDisplay }) {
           navigate("/");
           setDisplay(0);
         }}
+        class="btn .btn-outline-success"
       >
         Home
       </button>
-      <button value="search" onClick={() => navigate("/search/")}>
+      <button
+        value="search"
+        onClick={() => navigate("/search/")}
+        class="btn .btn-outline-success"
+      >
         Search
       </button>
-      <button value="filter" onClick={() => setDisplay(1)}>
+      <button
+        value="filter"
+        onClick={() => setDisplay(1)}
+        class="btn .btn-outline-success"
+      >
         Filter
       </button>
-      <button value="random" onClick={(e) => handleRandom(e)}>
+      <button
+        value="random"
+        onClick={(e) => handleRandom(e)}
+        class="btn .btn-outline-success"
+      >
         Random
       </button>
-      <button onClick={() => navigate("/most_listens/")}>Most Listens</button>
+      <button
+        onClick={() => navigate("/most_listens/")}
+        class="btn .btn-outline-success"
+      >
+        Most Listens
+      </button>
     </>
   );
 }

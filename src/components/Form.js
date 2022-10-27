@@ -8,10 +8,16 @@ function Form({ display, handleSelect, selections }) {
   //     return displayForm;
   //   } else {
   displayForm = (
-    <form onSubmit={(e) => handleSelect(e)}>
-      <select name="title">{selections}</select>
-      <button type="Submit">Select</button>
-    </form>
+    <>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col"></div>
+        <form onSubmit={(e) => handleSelect(e)}>
+          <select name="title">{selections}</select>
+          <button type="Submit">Select</button>
+        </form>
+      </div>
+    </>
   );
   //   }
   return displayForm;
