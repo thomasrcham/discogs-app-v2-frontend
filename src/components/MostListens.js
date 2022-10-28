@@ -15,7 +15,11 @@ function MostListens() {
 
   let mostListensDisplay = mostListensArray
     ? mostListensArray.map((a) => (
-        <div class="card card border-secondary" style={{ width: "18rem" }}>
+        <div
+          class="card card border-secondary album-image"
+          style={{ width: "18rem" }}
+          onClick={() => navigate(`/albums/${a[0].id}`)}
+        >
           <img src={a[0].cover_image} class="card-img-top" alt={a[0].name} />
           <div class="card-body">
             <h5 class="card-title">
@@ -28,12 +32,6 @@ function MostListens() {
             <div class="card-text">
               <span>Total Listens: {a[1]}</span>
               <br />
-              <span
-                class="listens-text"
-                onClick={() => navigate(`/albums/${a[0].id}`)}
-              >
-                Go to Album Page
-              </span>
             </div>
           </div>
         </div>

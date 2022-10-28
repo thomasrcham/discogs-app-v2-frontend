@@ -61,39 +61,24 @@ function Artist() {
   let albumDisplay = albumArray
     ? albumArray.map((a) => (
         <div
-          class="card card border-secondary"
+          class="card card border-secondary album-image"
           style={{ width: "18rem" }}
           key={a.id}
+          onClick={() => {
+            navigate(`/albums/${a.id}`);
+          }}
         >
-          <span
-            onClick={() => {
-              navigate(`/albums/${a.id}`);
-            }}
-          >
-            <img
-              src={a.cover_image}
-              class="card-img-top album-image"
-              alt={a.name}
-            />
+          <span>
+            <img src={a.cover_image} class="card-img-top" alt={a.name} />
           </span>
           <div class="card-body">
-            <span
-              onClick={() => {
-                navigate(`/albums/${a.id}`);
-              }}
-            >
+            <span>
               <h5 class="card-title album-name">{a.name}</h5>
             </span>
 
             <div class="card-text">
               <span>Released in: {a.year}</span>
               <br />
-              <span
-                class="listens-text"
-                onClick={() => navigate(`/albums/${a.id}`)}
-              >
-                Go to Album Page
-              </span>
             </div>
           </div>
         </div>

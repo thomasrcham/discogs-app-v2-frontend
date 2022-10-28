@@ -67,7 +67,7 @@ function Site() {
   return (
     <>
       <div className="header">
-        TITLE
+        THIS IS WHERE THE TITLE SHOULD GO
         <div className="buttons-container">
           <div className="buttons">
             {

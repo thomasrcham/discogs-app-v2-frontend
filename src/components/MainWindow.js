@@ -3,9 +3,9 @@ import { useState } from "react";
 import AlbumContainer from "./AlbumContainer.js";
 import MostListens from "./MostListens.js";
 import Listens from "./Listens.js";
-import Form from "./Form.js";
 import Search from "./Search.js";
 import Artist from "./Artist.js";
+import Display from "./Display.js";
 
 function MainWindow({
   handleAlbumSelect,
@@ -25,7 +25,7 @@ function MainWindow({
           exact
           path="/"
           element={
-            <Form
+            <Display
               handleAlbumSelect={handleAlbumSelect}
               albumSelections={albumSelections}
               handleArtistSelect={handleArtistSelect}
