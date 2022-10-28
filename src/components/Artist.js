@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 function Artist() {
-  const [artistArray, setArtistArray] = useState(null);
+  // const [artistArray, setArtistArray] = useState(null);
   const [albumArray, setAlbumArray] = useState(null);
   const [artistDetails, setArtistDetails] = useState(null);
 
@@ -10,18 +10,18 @@ function Artist() {
   let { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:9292/artists/${id}`)
+    // fetch(`http://localhost:9292/artists/${id}`)
+    //   .then((r) => r.json())
+    //   .then((d) => {
+    //     setArtistArray(d);
+    //   })
+    //   .then(
+    fetch(`http://localhost:9292/artistAlbum/${id}`)
       .then((r) => r.json())
       .then((d) => {
-        setArtistArray(d);
+        setAlbumArray(d);
       })
-      .then(
-        fetch(`http://localhost:9292/artistAlbum/${id}`)
-          .then((r) => r.json())
-          .then((d) => {
-            setAlbumArray(d);
-          })
-      )
+      // )
       .then(
         fetch(`http://localhost:9292/artistInfo/${id}`)
           .then((r) => r.json())
@@ -37,11 +37,21 @@ function Artist() {
       : artistDetails.name
     : null;
 
+  let artistDetailsDisplay = artistDetails
+    ? artistDetails.profile.substring(0, 500)
+    : null;
+
   let artistDisplay = artistDetails ? (
     <div class="card artist-info border-secondary" style={{ width: "30rem" }}>
       <div class="card-body">
         <h3 class="card-title">{artistName}</h3>
-        <p class="card-text">{artistDetails.profile}</p>
+        <p class="card-text">
+          {artistDetailsDisplay.substr(
+            0,
+            artistDetailsDisplay.lastIndexOf(".")
+          )}
+          .
+        </p>
         <a
           href={artistDetails.uri}
           target="_blank"

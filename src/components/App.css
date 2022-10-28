@@ -1,5 +1,5 @@
 .header {
-  height: 20vh;
+  height: 15vh;
   position: fixed;
   top: 0;
   left: 0;
@@ -26,7 +26,6 @@ body {
 
 .buttons {
   width: 70%;
-  /* border: 2px solid white; */
 }
 
 .search-container {
@@ -44,10 +43,24 @@ form#search-form {
   flex-direction: row;
 }
 
+.select-button {
+  border-radius: 15%;
+  border-width: 1px;
+  float: right;
+  background-color: #a597a1;
+}
+
+.dropdown {
+  margin-right: 5px;
+}
+
 .baseline {
   display: flex;
   align-items: flex-end;
-  width: 20vh;
+  width: 15vh;
+  text-align: right;
+  justify-content: right;
+  margin-right: 10px;
 }
 
 ul.left {
@@ -58,7 +71,6 @@ ul.left {
 }
 
 .left {
-  /* flex-direction: row; */
   flex-wrap: wrap;
   justify-content: space-evenly;
   background-color: #d9d5cc;
@@ -70,8 +82,8 @@ ul.left {
 
 .main-window {
   position: relative;
-  height: 80vh;
-  top: 20vh;
+  height: 85vh;
+  top: 15vh;
   left: 0;
   right: 0;
   text-align: center;

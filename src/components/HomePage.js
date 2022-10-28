@@ -16,15 +16,15 @@ function HomePage() {
   let homePageDisplay = homePageArray
     ? homePageArray.map((a) => (
         <div
-          class="card card border-secondary album-image"
+          className="card card border-secondary album-image"
           style={{ width: "18rem" }}
           onClick={() => {
             navigate(`/albums/${a.id}`);
           }}
         >
           <img src={a.cover_image} class="card-img-top" alt={a.name} />
-          <div class="card-body">
-            <h5 class="card-title">
+          <div className="card-body">
+            <h5 className="card-title">
               {a.artist.name === "Various" ? "Various Artists" : a.artist.name}{" "}
               - {a.name}
             </h5>

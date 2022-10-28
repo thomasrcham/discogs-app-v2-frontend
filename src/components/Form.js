@@ -14,13 +14,15 @@ function Form({
             <span className="baseline">Artist Select: </span>
             <select
               name="artistName"
-              className="form-select"
+              className="form-select dropdown"
               style={{ width: "40%" }}
               aria-label="Default select example"
             >
               {artistSelections}
             </select>
-            <button type="Submit">Select</button>
+            <button className="select-button" type="Submit">
+              Select
+            </button>
           </div>
         </form>
         <form onSubmit={(e) => handleAlbumSelect(e)}>
@@ -29,13 +31,15 @@ function Form({
             <span className="baseline">Album Title Select: </span>
             <select
               name="albumTitle"
-              className="form-select"
+              className="form-select dropdown"
               style={{ width: "40%" }}
               aria-label="Default select example"
             >
               {albumSelections}
             </select>
-            <button type="Submit">Select</button>
+            <button className="select-button" type="Submit">
+              Select
+            </button>
           </div>
         </form>
       </div>
