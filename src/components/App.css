@@ -99,15 +99,22 @@ ul.left {
   size: 16px;
 }
 
+.album-image:hover {
+  outline: 4px solid white;
+  outline-offset: -2px;
+}
+
+.album-name:hover {
+  text-decoration: underline;
+}
+
 .listens-text:hover {
   text-decoration: underline;
-  color: rgb(31, 30, 30);
 }
 
 .most-listens-window {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   align-items: stretch;

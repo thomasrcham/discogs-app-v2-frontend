@@ -80,9 +80,14 @@ function AlbumContainer({ selectedAlbum }) {
           </div>
           <div className="col-md-4 artist-info card-title">
             <h4 style={{ fontSize: "largest" }}>
-              {displayAlbum.artist.name === "Various"
-                ? "Various Artists"
-                : displayAlbum.artist.name}{" "}
+              <span
+                className="listens-text"
+                onClick={() => navigate(`/artists/${displayAlbum.artist.id}`)}
+              >
+                {displayAlbum.artist.name === "Various"
+                  ? "Various Artists"
+                  : displayAlbum.artist.name}
+              </span>{" "}
               - {displayAlbum.name}
             </h4>
             <span style={{ fontSize: "medium" }}>

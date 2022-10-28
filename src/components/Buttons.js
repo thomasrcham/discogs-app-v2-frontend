@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-function Buttons({ handleRandom, returnHome, selectedAlbum, setDisplay }) {
+function Buttons({ handleRandom, setDisplay }) {
   const navigate = useNavigate();
   //   return selectedAlbum ? (
   //     <button value="return" onClick={() => returnHome()}>
@@ -15,14 +15,14 @@ function Buttons({ handleRandom, returnHome, selectedAlbum, setDisplay }) {
           navigate("/");
           setDisplay(0);
         }}
-        class="btn .btn-outline-success"
+        className="btn .btn-outline-success"
       >
         Home
       </button>
       <button
         value="search"
         onClick={() => navigate("/search/")}
-        class="btn .btn-outline-success"
+        className="btn .btn-outline-success"
       >
         Search
       </button>
@@ -36,13 +36,13 @@ function Buttons({ handleRandom, returnHome, selectedAlbum, setDisplay }) {
       <button
         value="random"
         onClick={(e) => handleRandom(e)}
-        class="btn .btn-outline-success"
+        className="btn .btn-outline-success"
       >
         Random
       </button>
       <button
         onClick={() => navigate("/most_listens/")}
-        class="btn .btn-outline-success"
+        className="btn .btn-outline-success"
       >
         Most Listens
       </button>
