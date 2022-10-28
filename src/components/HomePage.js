@@ -10,7 +10,6 @@ function HomePage() {
       .then((r) => r.json())
       .then((d) => {
         setHomePageArray(d);
-        console.log(d);
       });
   }, []);
 

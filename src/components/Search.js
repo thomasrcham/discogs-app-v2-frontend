@@ -17,7 +17,6 @@ function Search({ setKey, key }) {
   }, [search]);
 
   function handleSubmit(e) {
-    console.log("submit");
     e.preventDefault();
     let string = `value=${e.target.class.value}&search=${e.target.term.value}`;
     setSearch(string);

@@ -10,19 +10,16 @@ function Artist() {
   let { id } = useParams();
 
   useEffect(() => {
-    console.log("fetch");
     fetch(`http://localhost:9292/artists/${id}`)
       .then((r) => r.json())
       .then((d) => {
         setArtistArray(d);
-        console.log(d);
       })
       .then(
         fetch(`http://localhost:9292/artistAlbum/${id}`)
           .then((r) => r.json())
           .then((d) => {
             setAlbumArray(d);
-            console.log(d);
           })
       )
       .then(
@@ -30,7 +27,6 @@ function Artist() {
           .then((r) => r.json())
           .then((d) => {
             setArtistDetails(d);
-            console.log(d);
           })
       );
   }, []);

@@ -12,7 +12,6 @@ function Listens() {
       .then((r) => r.json())
       .then((d) => {
         setAllListensArray(d);
-        console.log(d);
       });
   }, []);
 

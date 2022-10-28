@@ -14,10 +14,7 @@ function AlbumContainer({ selectedAlbum }) {
   }, [selectedAlbum]);
 
   function handleNewListen() {
-    // let date = new Date().toJSON().slice(0, 10);
-    // let time = new Date().toTimeString().slice(0, 8);
     let dateTime = new Date().toJSON();
-    // date + " " + time;
     fetch(`http://localhost:9292/listens/create`, {
       method: "POST",
       headers: {
@@ -66,10 +63,7 @@ function AlbumContainer({ selectedAlbum }) {
 
   return displayAlbum ? (
     <>
-      <div
-        class="card-body mb-3 album-window"
-        // style={{max-width: "540px"}}
-      >
+      <div class="card-body mb-3 album-window">
         <div className="row g-0 artist-row album-window">
           <div className="col-md-6">
             <img
@@ -97,28 +91,6 @@ function AlbumContainer({ selectedAlbum }) {
           </div>
         </div>
       </div>
-      {/* <div className="album-window">
-        <div className="cover">
-          <img
-            src={displayAlbum.cover_image}
-            alt={displayAlbum.name}
-            className="cover-image"
-          />
-        </div>
-        <div className="artist-info">
-          <p style={{ fontSize: "largest" }}>
-            {displayAlbum.artist.name === "Various"
-              ? "Various Artists"
-              : displayAlbum.artist.name}
-            <br />
-            {displayAlbum.name}
-          </p>
-          <span style={{ fontSize: "medium" }}>
-            Released in {displayAlbum.year}
-          </span>
-          {displayListen}
-        </div>
-      </div> */}
     </>
   ) : null;
 }
