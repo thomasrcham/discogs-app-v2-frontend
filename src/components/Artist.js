@@ -27,6 +27,7 @@ function Artist() {
           .then((r) => r.json())
           .then((d) => {
             setArtistDetails(d);
+            console.log(d);
           })
       );
   }, []);
@@ -42,10 +43,13 @@ function Artist() {
     : null;
 
   let artistDisplay = artistDetails ? (
-    <div class="card artist-info border-secondary" style={{ width: "30rem" }}>
-      <div class="card-body">
-        <h3 class="card-title">{artistName}</h3>
-        <p class="card-text">
+    <div
+      className="card artist-info border-secondary"
+      style={{ width: "30rem" }}
+    >
+      <div className="card-body">
+        <h3 className="card-title">{artistName}</h3>
+        <p className="card-text">
           {artistDetailsDisplay.substr(
             0,
             artistDetailsDisplay.lastIndexOf(".")
@@ -55,7 +59,7 @@ function Artist() {
         <a
           href={artistDetails.uri}
           target="_blank"
-          class="card-link"
+          className="card-link"
           rel="noreferrer"
         >
           Discogs Link
@@ -67,7 +71,7 @@ function Artist() {
   let albumDisplay = albumArray
     ? albumArray.map((a) => (
         <div
-          class="card card border-secondary album-image"
+          className="card card border-secondary album-image"
           style={{ width: "18rem" }}
           key={a.id}
           onClick={() => {
@@ -75,14 +79,14 @@ function Artist() {
           }}
         >
           <span>
-            <img src={a.cover_image} class="card-img-top" alt={a.name} />
+            <img src={a.cover_image} className="card-img-top" alt={a.name} />
           </span>
-          <div class="card-body">
+          <div className="card-body">
             <span>
-              <h5 class="card-title album-name">{a.name}</h5>
+              <h5 className="card-title album-name">{a.name}</h5>
             </span>
 
-            <div class="card-text">
+            <div className="card-text">
               <span>Released in: {a.year}</span>
               <br />
             </div>
