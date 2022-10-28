@@ -69,7 +69,6 @@ function Artist() {
             onClick={() => {
               navigate(`/albums/${a.id}`);
             }}
-            className=""
           >
             <img
               src={a.cover_image}

@@ -3,14 +3,16 @@ import { useState } from "react";
 import AlbumContainer from "./AlbumContainer.js";
 import MostListens from "./MostListens.js";
 import Listens from "./Listens.js";
-import Display from "./Display.js";
+import Form from "./Form.js";
 import Search from "./Search.js";
 import Artist from "./Artist.js";
 
 function MainWindow({
-  handleSelect,
+  handleAlbumSelect,
+  handleArtistSelect,
   selectedAlbum,
-  selections,
+  albumSelections,
+  artistSelections,
   setSelectedAlbum,
 }) {
   const [key, setKey] = useState(0);
@@ -23,7 +25,12 @@ function MainWindow({
           exact
           path="/"
           element={
-            <Display handleSelect={handleSelect} selections={selections} />
+            <Form
+              handleAlbumSelect={handleAlbumSelect}
+              albumSelections={albumSelections}
+              handleArtistSelect={handleArtistSelect}
+              artistSelections={artistSelections}
+            />
           }
         />
         <Route

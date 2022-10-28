@@ -1,20 +1,39 @@
-function Form({ display, handleSelect, selections }) {
-  let displayForm = "";
-  //   if (display === 1) {
-  //     displayForm = <p>Filters!</p>;
-  //     return displayForm;
-  //   } else if (display === 2) {
-  //     displayForm = <p>Search!</p>;
-  //     return displayForm;
-  //   } else {
-  displayForm = (
+function Form({
+  handleAlbumSelect,
+  handleArtistSelect,
+  albumSelections,
+  artistSelections,
+}) {
+  let displayForm = (
     <>
-      <div class="row">
-        <div class="col"></div>
-        <div class="col"></div>
-        <form onSubmit={(e) => handleSelect(e)}>
-          <select name="title">{selections}</select>
-          <button type="Submit">Select</button>
+      <div className="form-row row">
+        <form onSubmit={(e) => handleArtistSelect(e)}>
+          <div className="form-col col">
+            <span className="baseline">Artist Select: </span>
+            <select
+              name="artistName"
+              className="form-select"
+              style={{ width: "50%" }}
+              aria-label="Default select example"
+            >
+              {artistSelections}
+            </select>
+            <button type="Submit">Select</button>
+          </div>
+        </form>
+        <form onSubmit={(e) => handleAlbumSelect(e)}>
+          <div className="form-col col">
+            <span className="baseline">Album Title Select: </span>
+            <select
+              name="albumTitle"
+              className="form-select"
+              style={{ width: "50%" }}
+              aria-label="Default select example"
+            >
+              {albumSelections}
+            </select>
+            <button type="Submit">Select</button>
+          </div>
         </form>
       </div>
     </>

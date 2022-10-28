@@ -1,19 +1,14 @@
 import { useNavigate } from "react-router-dom";
 
-function Buttons({ handleRandom, setDisplay }) {
+function Buttons({ handleRandom }) {
   const navigate = useNavigate();
-  //   return selectedAlbum ? (
-  //     <button value="return" onClick={() => returnHome()}>
-  //       Back to Home
-  //     </button>
-  //   ) :
+
   return (
     <>
       <button
         value="home"
         onClick={() => {
           navigate("/");
-          setDisplay(0);
         }}
         className="btn .btn-outline-success"
       >

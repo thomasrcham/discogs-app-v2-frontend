@@ -1,9 +1,10 @@
 import { format } from "date-fns";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function Listens() {
   const [allListensArray, setAllListensArray] = useState(null);
+  const navigate = useNavigate();
   let { id } = useParams();
 
   useEffect(() => {
@@ -52,6 +53,14 @@ function Listens() {
     <>
       <div>
         <h4>
+          <h6>
+            <span
+              class="listens-text"
+              onClick={() => navigate(`/albums/${id}`)}
+            >
+              Back to album page
+            </span>
+          </h6>
           {allListensArray && allListensArray.length > 0
             ? "Here are the " +
               allListensArray.length +
@@ -60,6 +69,7 @@ function Listens() {
               ":"
             : "You've never listened to this? That's crazy!"}
         </h4>
+
         <ul
           class="list-group left"
           style={{ width: "60%", left: "20%", backgroundColor: "#d9d5cc" }}
