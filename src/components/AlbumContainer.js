@@ -75,7 +75,7 @@ function AlbumContainer({ selectedAlbum }) {
             <img
               src={displayAlbum.cover_image}
               alt={displayAlbum.name}
-              class="img-fluid rounded-start"
+              class="img-fluid rounded-start cover-image"
             />
           </div>
           <div className="col-md-4 artist-info card-title">
