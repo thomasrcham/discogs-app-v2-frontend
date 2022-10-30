@@ -39,7 +39,7 @@ function Artist() {
     : null;
 
   let artistDetailsDisplay = artistDetails
-    ? artistDetails.profile.substring(0, 500)
+    ? artistDetails.details.substring(0, 500)
     : null;
 
   let artistDisplay = artistDetails ? (
